@@ -33,6 +33,11 @@ const Homepage = ({ countries, setCountries }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    handleSearch()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countries])
+
   return (
     <>
       <Controls onSearch={handleSearch} />
