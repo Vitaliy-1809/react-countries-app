@@ -4,7 +4,7 @@ import { IoArrowBack } from 'react-icons/io5'
 import { useParams, useHistory } from 'react-router-dom'
 import { searchByCountry } from '../config'
 import { Button } from '../components/Button'
-import Info from '../components/Info'
+import Info from '../components/Info/Info'
 
 const Details = () => {
   const { name } = useParams()
@@ -18,13 +18,13 @@ const Details = () => {
   }, [name])
 
   return (
-    <div>
+    <>
       <Button onClick={goBack}>
         <IoArrowBack /> Back
       </Button>
       {country && <Info push={push} {...country} />}
-    </div>
-  );
+    </>
+  )
 }
 
-export default Details;
+export default Details

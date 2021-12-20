@@ -1,9 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import Controls from '../components/Controls'
-import List from '../components/List'
-import Card from '../components/Card'
+import Controls from '../components/Controls/Controls'
+import List from '../components/List/List'
+import Card from '../components/Card/Card'
 import { ALL_COUNTRIES } from '../config'
 
 const Homepage = ({ countries, setCountries }) => {
@@ -30,12 +30,12 @@ const Homepage = ({ countries, setCountries }) => {
         .then(
           ({ data }) => setCountries(data)
         )
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     handleSearch()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countries])
 
   return (
@@ -63,12 +63,18 @@ const Homepage = ({ countries, setCountries }) => {
               ]
             }
 
-            return <Card key={country.name} onClick={() => push(`/country/${country.name}`)} {...countryInfo} />
+            return (
+              <Card
+                key={country.name}
+                onClick={() => push(`/country/${country.name}`)}
+                {...countryInfo}
+              />
+            )
           })
         }
       </List>
     </>
-  );
+  )
 }
 
-export default Homepage;
+export default Homepage
